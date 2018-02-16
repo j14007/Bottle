@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <link href="../static/css/style.css" type="text/css" rel="stylesheet" />
+  <title>Twitter TL</title>
+</head>
+
+<body>
+
+
+
+  <div id="content">
+
+    <div class="area">
+
+      % if req.status_code == 200:
+      % for tweet in tweets["statuses"]:
+      % created_at = (tweet["created_at"])
+      % User = (tweet["user"]["screen_name"].encode("utf-8"))
+      % U_Name = (tweet["user"]["name"].encode("utf-8"))
+      % U_img = (tweet["user"]["profile_image_url"])
+      % Text = (tweet["text"].encode("utf-8"))
+      <p><img src="{{U_img}}"></p>
+      <p>{{User}}:{{U_Name}}</p>
+      <p>TEXT: {{Text}}</p>
+      <p>{{created_at}}</p>
+      % end
+
+      <p><input type="button" value="このページを再読込" onclick="location.reload();" /></p>
+
+    </div><!-- area -->
+
+  </div><!-- content -->
+
+
+</body>
+
+</html>
